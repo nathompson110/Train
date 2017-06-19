@@ -16,4 +16,6 @@ body {
 .panel-title {
 	text-align:center;
 }
-
+label {
+	font-weight: 1000;
+}
