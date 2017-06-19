@@ -110,14 +110,25 @@
   	destination=$("#destinationInput").val();
   	firstTrain= $("#firstTrainInput").val();
   	frequency= $("#frequencyInput").val();
+  	firstTwo=parseInt((firstTrain.charAt(0)+firstTrain.charAt(1)),10)
+  	lastTwo=parseInt((firstTrain.charAt(3)+firstTrain.charAt(4)),10)
  
-// if (!((trainName!=="")&&(destination!=="")&&(firstTrain!=="")&&(frequency!=="")))
-// 	{console.log(frequencyInput)
-	// } else if isNaN(parseInt(frequencyInput,10))
-	// {alert("Frequency must be an integer greater than 0")
-	// }else if ((!(firstTwo<=24)||!(lastTwo<=59)||!(firstTrain.charAt(2)===":")&&(firstTrain.length===5)))
-	// {alert("Time must be provided in the correct format")
-// } else {
+if (!((trainName!=="")&&(destination!=="")&&(firstTrain!=="")&&(frequency!=="")))
+	{alert("Missing Data")
+	
+	} else if (isNaN(parseInt(frequency,10)))
+	{alert("Frequency must be an integer greater than 0")
+	}else if (firstTrain.length!==5){
+
+		(alert("Time format must match hh:mm"))
+	}else if(!(firstTrain.charAt(2)===":"))
+	{alert("Time format must match hh:mm")
+	}else if (!(firstTwo<=24))
+	{alert("Your first two digits of time must be 24 or less")
+}else if (!(lastTwo<=59))
+	{alert("Your last two digits of time must be 59 or less")
+
+} else {
 
   	console.log("Data" + trainName+" "+destination+" "+firstTrain+" "+frequency);
 
@@ -129,7 +140,7 @@
   		frequency: frequency
   	});
   }	
-// }
+}
  database.ref().on('child_added',function(childSnapshot){
         console.log(childSnapshot.val().trainName);
         console.log(childSnapshot.val().destination);
