@@ -1,0 +1,19 @@
+body {
+		font-family: 'Old Standard TT', serif;
+}
+
+.jumbotron {
+	font-family: 'Old Standard TT', serif;
+	color: white;
+	background-color: black;
+	text-align: center;
+}
+
+/*#panel {
+	background-color: black;
+
+}*/
+.panel-title {
+	text-align:center;
+}
+
